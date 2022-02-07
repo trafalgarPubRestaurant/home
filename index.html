@@ -1,29 +1,68 @@
-<!DOCTYPE html>
 <html>
-<head>
-  <title>Welcome to Vue</title>
-  <script src="https://unpkg.com/vue"></script>
-</head>
-<body>
-  <div id="app">
-    <h1 class="title">{{ title }}</h1>
-    <img src="./assets/logo.jpg" alt="logo">
-  </div>
+  <head>
+    <title>Trafalgar Pub Restaurant</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <script src="https://unpkg.com/vue-router@2.0.0"></script>
+    <!-- currently bootstrap is only used for header - for demo purposes only -->
 
-  <script>
-    var app = new Vue({
-      el: '#app',
-      data: {
-        title: 'Trafalgar Pub Restaurant'
-      },
-      methods: {
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="text-center header">
+      <img class="logo" src="./assets/logo.jpg" alt="Logo">
+    </div>
+    <div class="wrapper">
+      <div id="app" class="container" style="padding-top: 2em;">
+      
+        <div class="text-center">
+          <a href="./assets/pdf-test.pdf">
+            <button class="btn btn-light menuButton" @click.prevent="downloadItem()">Scarica il menù</button>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="./navigation.vue.js"></script>
+    <script src="./access.vue.js"></script>
+    <script src="./content.vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+      var app = new Vue({
+        el: "#app",
+        router: router,
+        data() {
+          return {
+            title: 'Traf'
+          };
+        },
+        methods: {
+        },
+      });
+    </script>
+    <style>
+      .header {
+        width: 100vw;
+        max-height: 200px;
+        background-color: #041F14;
       }
-    })
-  </script>
-  <style>
-    .title{
-      text-align: center;
-    }
-  </style>
-</body>
+      .logo {
+        height: 200px;
+      }
+      .wrapper {
+        width: 100vw;
+        left: 0;
+        min-height: calc(100vh - 200px);
+        background-color: black;
+      }
+      .menuButton {
+        height: 60px;
+        color: #041F14;
+      }
+    </style>
+  </body>
 </html>
